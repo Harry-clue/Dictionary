@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordly — Dictionary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">W</span>
+      <h1>Wordly</h1>
+    </div>
+    <p class="tagline">A single-page dictionary for curious minds.</p>
+  </header>
+
+  <main class="container">
+    <form id="search-form" class="search-form" autocomplete="off" novalidate>
+      <div class="search-input-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+        </svg>
+        <input id="search-input" type="text" placeholder="Search for a word…" aria-label="Search for a word" required />
+        <button type="submit" class="search-btn" aria-label="Search">Search</button>
+      </div>
+      <p id="search-error" class="search-error" role="alert" aria-live="polite"></p>
+    </form>
+
+    <section id="results" class="results" aria-live="polite">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+          </svg>
+        </div>
+        <h2>Start exploring</h2>
+        <p>Enter a word above to see its definition, pronunciation, synonyms, and examples.</p>
+      </div>
+      <div id="results-content" class="results-content" hidden></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Wordly SPA · Data courtesy of the Dictionary API.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
