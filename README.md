@@ -6,6 +6,7 @@ see its definitions, examples, synonyms, pronunciation, and source link.
 ## Features
 
 - Search using the [Free Dictionary API](https://dictionaryapi.dev/).
+- Clear the current search and return to the start screen.
 - View definitions, example sentences, and synonyms.
 - Click a synonym to search for it.
 - Play pronunciation audio when the API provides an audio file.

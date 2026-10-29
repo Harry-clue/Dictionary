@@ -115,6 +115,26 @@ body {
   color: #9aa49c;
 }
 
+.clear-btn {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  background: #f0f3ef;
+  color: var(--green-dark);
+}
+
 .search-btn {
   flex: none;
   padding: 0.75rem 1.15rem;

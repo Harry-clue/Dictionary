@@ -1,6 +1,7 @@
 const form = document.querySelector("#search-form");
 const input = document.querySelector("#search-input");
 const searchButton = form.querySelector('button[type="submit"]');
+const clearButton = document.querySelector("#clear-search");
 const errorMessage = document.querySelector("#search-error");
 const emptyState = document.querySelector("#empty-state");
 const results = document.querySelector("#results-content");
@@ -8,6 +9,11 @@ const results = document.querySelector("#results-content");
 let currentRequest;
 
 form.addEventListener("submit", searchForWord);
+input.addEventListener("input", () => {
+  errorMessage.textContent = "";
+  clearButton.hidden = !input.value;
+});
+clearButton.addEventListener("click", clearSearch);
 
 async function searchForWord(event) {
   event.preventDefault();
@@ -27,6 +33,7 @@ async function searchForWord(event) {
 
   searchButton.disabled = true;
   searchButton.textContent = "Searching…";
+  clearButton.hidden = false;
   emptyState.hidden = true;
   results.hidden = false;
   showMessage("Searching the dictionary…", "loading-message");
@@ -67,6 +74,20 @@ async function searchForWord(event) {
       searchButton.textContent = "Search";
     }
   }
+}
+
+function clearSearch() {
+  currentRequest?.abort();
+  currentRequest = undefined;
+  input.value = "";
+  errorMessage.textContent = "";
+  results.replaceChildren();
+  results.hidden = true;
+  emptyState.hidden = false;
+  searchButton.disabled = false;
+  searchButton.textContent = "Search";
+  clearButton.hidden = true;
+  input.focus();
 }
 
 function showMessage(text, className) {
